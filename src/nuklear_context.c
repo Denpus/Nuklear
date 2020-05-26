@@ -9,9 +9,11 @@
 NK_INTERN void
 nk_setup(struct nk_context *ctx, const struct nk_user_font *font)
 {
+    void *app = ctx->app;         /* den */
     NK_ASSERT(ctx);
     if (!ctx) return;
     nk_zero_struct(*ctx);
+    ctx->app = app;               /* den */
     nk_style_default(ctx);
     ctx->seq = 1;
     if (font) ctx->style.font = font;

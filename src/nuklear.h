@@ -5370,7 +5370,7 @@ struct nk_pool {
     nk_size cap;
 };
 
-struct nk_context {
+typedef struct nk_context {
 /* public: can be accessed freely */
     struct nk_input input;
     struct nk_style style;
@@ -5409,7 +5409,9 @@ struct nk_context {
     struct nk_page_element *freelist;
     unsigned int count;
     unsigned int seq;
-};
+    /* app */        /* den */
+    void *app;      /* den */
+} nk_context_t;
 
 /* ==============================================================
  *                          MATH
