@@ -319,5 +319,11 @@ NK_LIB void nk_draw_property(struct nk_command_buffer *out, const struct nk_styl
 NK_LIB void nk_do_property(nk_flags *ws, struct nk_command_buffer *out, struct nk_rect property, const char *name, struct nk_property_variant *variant, float inc_per_pixel, char *buffer, int *len, int *state, int *cursor, int *select_begin, int *select_end, const struct nk_style_property *style, enum nk_property_filter filter, struct nk_input *in, const struct nk_user_font *font, struct nk_text_edit *text_edit, enum nk_button_behavior behavior);
 NK_LIB void nk_property(struct nk_context *ctx, const char *name, struct nk_property_variant *variant, float inc_per_pixel, const enum nk_property_filter filter);
 
+#define NK_SIN     nk_sin
+#define NK_COS     nk_cos
+#define NK_MEMCPY  nk_memcopy
+#define NK_DTOA    nk_dtoa
+#define NK_MEMSET  nk_memset
+
 #endif
 
