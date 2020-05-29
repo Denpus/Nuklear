@@ -21,10 +21,10 @@
 #define NK_INCLUDE_DEFAULT_FONT
 #define NK_IMPLEMENTATION
 #define NK_SDL_GL2_IMPLEMENTATION
-#include "dwin_event.h"
+#include "../../nuklear.h"
 #include "nuklear_sdl_gl2.h"
 
-#define WINDOW_WIDTH 1200
+#define WINDOW_WIDTH 600
 #define WINDOW_HEIGHT 800
 
 /* ===============================================================
@@ -41,11 +41,12 @@
 /*#define INCLUDE_NODE_EDITOR */
 
 #ifdef INCLUDE_ALL
-  #define INCLUDE_STYLE
   #define INCLUDE_CALCULATOR
   #define INCLUDE_OVERVIEW
   #define INCLUDE_NODE_EDITOR
 #endif
+
+#define INCLUDE_STYLE
 
 #ifdef INCLUDE_STYLE
   #include "../style.c"
@@ -114,7 +115,7 @@ main(int argc, char *argv[])
     /*set_style(ctx, THEME_BLUE);*/
     /*set_style(ctx, THEME_DARK);*/
     #endif
-
+    set_style(ctx, THEME_BLUE);
     bg.r = 0.10f, bg.g = 0.18f, bg.b = 0.24f, bg.a = 1.0f;
     while (running)
     {
@@ -146,6 +147,11 @@ main(int argc, char *argv[])
             nk_property_int(ctx, "Compression:", 0, &property, 100, 10, 1);
 
             nk_layout_row_dynamic(ctx, 20, 1);
+
+            nk_layout_space_push(ctx, nk_rect(0, 0, 1580, 504));
+            nk_label(ctx, "TEXTO DE PRUEBA", NK_TEXT_CENTERED);
+            nk_layout_space_end(ctx);
+
             nk_label(ctx, "background:", NK_TEXT_LEFT);
             nk_layout_row_dynamic(ctx, 25, 1);
             if (nk_combo_begin_color(ctx, nk_rgb_cf(bg), nk_vec2(nk_widget_width(ctx),400))) {
